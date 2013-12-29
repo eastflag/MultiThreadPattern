@@ -1,7 +1,7 @@
 package ProducerConsumer.Sample;
 public class Main {
     public static void main(String[] args) {
-        Table table = new Table(3);     // �P�[�L��3�܂Œu����e�[�u�������
+        Table table = new Table(3);     // 케이크를 3개까지 놓을수 있는 테이블
         new MakerThread("MakerThread-1", table, 31415).start();
         new MakerThread("MakerThread-2", table, 92653).start();
         new MakerThread("MakerThread-3", table, 58979).start();

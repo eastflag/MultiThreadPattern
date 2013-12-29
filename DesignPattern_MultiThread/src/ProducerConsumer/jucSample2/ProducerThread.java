@@ -19,13 +19,13 @@ public class ProducerThread extends Thread {
     public void run() {
         try {
             while (true) {
-                // �o�b�t�@�ɕ������l�ߍ���
+                // 버퍼에 문자를 채워넣는다
                 for (int i = 0; i < buffer.length; i++) {
                     buffer[i] = nextChar();
                     System.out.println(Thread.currentThread().getName() + ": " + buffer[i] + " -> ");
                 }
 
-                // �o�b�t�@����������
+                // 버퍼를 교환한다
                 System.out.println(Thread.currentThread().getName() + ": BEFORE exchange");
                 buffer = exchanger.exchange(buffer);
                 System.out.println(Thread.currentThread().getName() + ": AFTER exchange");
@@ -34,7 +34,7 @@ public class ProducerThread extends Thread {
         }
     }
 
-    // �����𐶎Y����
+    // 문자를 생산한다
     private char nextChar() throws InterruptedException {
         char c = (char)('A' + index % 26);
         index++;

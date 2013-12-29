@@ -18,12 +18,12 @@ public class ConsumerThread extends Thread {
     public void run() {
         try {
             while (true) {
-                // �o�b�t�@����������
+                // 버퍼를 교환한다.
                 System.out.println(Thread.currentThread().getName() + ": BEFORE exchange");
                 buffer = exchanger.exchange(buffer);
                 System.out.println(Thread.currentThread().getName() + ": AFTER exchange");
 
-                // �o�b�t�@���當�������o��
+                // 버퍼로부터 문자를 꺼낸다
                 for (int i = 0; i < buffer.length; i++) {
                     System.out.println(Thread.currentThread().getName() + ":  -> " + buffer[i]);
                     Thread.sleep(random.nextInt(1000));

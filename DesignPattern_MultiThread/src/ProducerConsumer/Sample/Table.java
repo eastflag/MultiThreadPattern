@@ -1,16 +1,16 @@
 package ProducerConsumer.Sample;
 public class Table {
     private final String[] buffer;
-    private int tail;  // ����put����ꏊ
-    private int head;  // ����take����ꏊ
-    private int count; // buffer���̃P�[�L��
+    private int tail;  // 다음에 put 할 장소
+    private int head;  // 다음에 take 할 장소
+    private int count; // buffer 안의 케이크 수
     public Table(int count) {
         this.buffer = new String[count];
         this.head = 0;
         this.tail = 0;
         this.count = 0;
     }
-    // �P�[�L��u��
+    // 케이크를 놓는다
     public synchronized void put(String cake) throws InterruptedException {
         System.out.println(Thread.currentThread().getName() + " puts " + cake);
         while (count >= buffer.length) {
@@ -21,7 +21,7 @@ public class Table {
         count++;
         notifyAll();
     }
-    // �P�[�L�����
+    // 케이크를 먹는다
     public synchronized String take() throws InterruptedException {
         while (count <= 0) {
             wait();

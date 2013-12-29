@@ -4,7 +4,7 @@ import java.util.Random;
 public class MakerThread extends Thread {
     private final Random random;
     private final Table table;
-    private static int id = 0; // �P�[�L�̒ʂ��ԍ�(�R�b�N����S������)
+    private static int id = 0; // 케이크 안내 번호(요리사 전원 공통
     public MakerThread(String name, Table table, long seed) {
         super(name);
         this.table = table;
