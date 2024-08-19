@@ -11,12 +11,14 @@ class TicketMaker {
 	
 	public static synchronized TicketMaker getInstance(){
 		if(singleton == null){
+			System.out.println("TicketMaker null");
 			singleton = new TicketMaker();
 		}
 		return singleton;
 	}
 	
 	public synchronized int getNextTicketNumber(){
+		System.out.println("getNextTicketNumber start: " + ticket);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
